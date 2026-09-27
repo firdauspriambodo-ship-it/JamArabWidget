@@ -57,7 +57,7 @@ public class ClockWidget extends AppWidgetProvider {
         int minWidth = newOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 180);
         int minHeight = newOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, 70);
 
-        float textSize = Math.min(minWidth / 3.2f, minHeight / 1.1f);
+        float textSize = Math.min(minWidth / 2.4f, minHeight / 0.65f);
         textSize = Math.max(24f, Math.min(textSize, 160f));
 
         String time = toArabicDigits(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date()));
