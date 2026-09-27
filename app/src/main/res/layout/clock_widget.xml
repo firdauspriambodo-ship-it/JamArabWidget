@@ -14,7 +14,7 @@
         android:singleLine="true"
         android:text="١٢:٣٤"
         android:textColor="#FFF5F5F5"
-        android:textSize="40sp"
+        android:textSize="101sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif" />
 </FrameLayout>
