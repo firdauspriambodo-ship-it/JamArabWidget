@@ -51,7 +51,21 @@ public class ClockWidget extends AppWidgetProvider {
             schedule(context);
         }
     }
+@Override
+    public void onAppWidgetOptionsChanged(Context context, AppWidgetManager manager,
+                                           int appWidgetId, android.os.Bundle newOptions) {
+        int minWidth = newOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 180);
+        int minHeight = newOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, 70);
 
+        float textSize = Math.min(minWidth / 3.2f, minHeight / 1.1f);
+        textSize = Math.max(24f, Math.min(textSize, 160f));
+
+        String time = toArabicDigits(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date()));
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_widget);
+        views.setTextViewText(R.id.clock_text, time);
+        views.setTextViewTextSize(R.id.clock_text, android.util.TypedValue.COMPLEX_UNIT_SP, textSize);
+        manager.updateAppWidget(appWidgetId, views);
+    }
     private static void updateAll(Context context, AppWidgetManager manager, int[] ids) {
         String time = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         time = toArabicDigits(time);
