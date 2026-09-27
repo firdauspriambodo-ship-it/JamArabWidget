@@ -43,7 +43,7 @@ public class ClockWidget extends AppWidgetProvider {
         String action = intent.getAction();
         if (ACTION_TICK.equals(action)
                 || Intent.ACTION_BOOT_COMPLETED.equals(action)
-                || Intent.ACTION_TIME_SET.equals(action)
+                || Intent.ACTION_TIME_CHANGED.equals(action)
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)) {
             AppWidgetManager manager = AppWidgetManager.getInstance(context);
             updateAll(context, manager, manager.getAppWidgetIds(
