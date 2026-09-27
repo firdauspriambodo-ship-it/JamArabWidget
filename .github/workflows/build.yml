@@ -21,8 +21,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Beri izin eksekusi gradlew
-        run: chmod +x gradlew
+      - - name: Build APK Debug
+        run: gradle assembleDebug
 
       - name: Build APK Debug
         run: ./gradlew assembleDebug
